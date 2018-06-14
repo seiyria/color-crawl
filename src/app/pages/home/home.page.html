@@ -1,12 +1,37 @@
 <ion-header>
-  <ion-toolbar>
+
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
     <ion-title>
-      Ionic Blank
+      Color Crawl
     </ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+
+  <h1 text-center>
+    Welcome to Color Crawl!
+  </h1>
+
+  <p text-center margin-top>
+    Color Crawl is a game of creating some strong creatures and sending them on colorful missions.
+  </p>
+
+  <p text-center margin-top>
+    You start with nothing and can raise your creature empire to be the best in the world, all from scratch.
+  </p>
+
+  <div text-center margin-top>
+    <ion-button color="primary" routerLink="/game/hero">Get Started</ion-button>
+  </div>
+
 </ion-content>

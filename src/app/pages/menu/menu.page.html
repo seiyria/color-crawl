@@ -1,0 +1,23 @@
+<ion-split-pane>
+  <ion-menu>
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title>Color Crawl</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <app-menu-list></app-menu-list>
+
+    <ion-footer>
+      <ion-toolbar transparent>
+        <ion-buttons slot="start">
+          <ion-button round="true">
+            <ion-icon slot="icon-only" name="build"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+
+  <ion-router-outlet main></ion-router-outlet>
+</ion-split-pane>
