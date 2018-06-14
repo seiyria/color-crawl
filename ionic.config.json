@@ -1,0 +1,7 @@
+{
+  "name": "color-crawl",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
