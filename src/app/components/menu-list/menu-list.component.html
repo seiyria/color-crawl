@@ -1,13 +1,13 @@
 <ion-content>
   <ion-list>
     <ion-menu-toggle auto-hide="false" *ngFor="let page of pages">
-      <ion-item (click)="goToPage(page)">
+      <ion-item (click)="goToPage(page)" [color]="page.color">
 
         <ion-icon [name]="page.icon" slot="start"></ion-icon>
 
         <ion-label>
           <h2>{{ page.title }}</h2>
-          <h3>{{ page.subtitle }}</h3>
+          <h3>{{ page.subtitle() }}</h3>
         </ion-label>
 
       </ion-item>

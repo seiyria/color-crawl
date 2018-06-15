@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { SpriteComponent } from './sprite/sprite.component';
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     IonicModule.forRoot(),
   ],
-  declarations: [],
+  declarations: [SpriteComponent],
+  exports: [SpriteComponent],
   entryComponents: [],
 })
 export class ComponentsModule {}

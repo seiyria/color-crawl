@@ -1,5 +1,14 @@
 <ion-header>
   <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
     <ion-title>Your Hero</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,20 +16,39 @@
 <ion-content padding>
 
   <ion-card>
+    <app-sprite mask="Person" [seed]="gameState.ref.currentHero.seed" scale="4" *ngIf="gameState.ref.currentHero.seed"></app-sprite>
+
     <ion-card-header>
-      <h1>Grandora, the Novice</h1>
+      <h1 text-center>
+        {{ gameState.ref.currentHero.name }} {{ gameState.ref.currentHero.tier | roman }}, the {{ gameState.ref.currentHero.job }}
+      </h1>
     </ion-card-header>
 
     <ion-card-content>
-      <h3>Came into existence on 6/14/2018.</h3>
-      <p margin-top>He is level 3.</p>
-      <p margin-top>He controls 60 Garches.</p>
-      <p margin-top>He has conquered 512 Crawls.</p>
-      <p margin-top>He is in his Prime.</p>
+      <ion-list>
+
+        <ion-item>
+          <ion-range disabled
+                     color="success"
+                     [min]="gameState.ref.currentHero.xp.minimum"
+                     [max]="gameState.ref.currentHero.xp.maximum"
+                     [(ngModel)]="gameState.ref.currentHero.xp.__current">
+          </ion-range>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon slot="start" name="clock"></ion-icon> Came into existence {{ gameState.ref.currentHero.createdAt | timeago }}
+        </ion-item>
+
+        <ion-item>
+          <ion-icon slot="start" name="body"></ion-icon> Level {{ gameState.ref.currentHero.level }}
+        </ion-item>
+
+      </ion-list>
     </ion-card-content>
 
     <ion-card-content>
-      <ion-button fill="outline">
+      <ion-button fill="outline" disabled>
         <ion-icon name="infinite" slot="start"></ion-icon>
         Become One With The Aether
       </ion-button>

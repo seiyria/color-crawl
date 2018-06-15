@@ -10,21 +10,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TimeAgoPipe } from 'time-ago-pipe';
 import { GameStateService } from './services/game-state.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TimeAgoPipe
+    AppComponent
   ],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-      IonicStorageModule.forRoot({
-          name: '__colorCrawl'
-      }),
+    IonicStorageModule.forRoot({
+        name: '__colorCrawl'
+    }),
     AppRoutingModule
   ],
   providers: [

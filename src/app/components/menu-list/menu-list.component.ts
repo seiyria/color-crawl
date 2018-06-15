@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { GameStateService } from '../../services/game-state.service';
 
 @Component({
     selector: 'app-menu-list',
@@ -11,18 +12,26 @@ import { MenuController } from '@ionic/angular';
 export class MenuListComponent {
 
   public pages = [
-    { title: 'Hero',            subtitle: 'Level 3',              icon: 'contact',    url: '/game/hero' },
-    { title: 'Essence Summon',  subtitle: '5 Essences Left',      icon: 'aperture',   url: '/game/essence-summon' },
-    { title: 'Garches',         subtitle: '60/100 Garches',       icon: 'person',     url: '' },
-    { title: 'Items',           subtitle: '20/100 Items',         icon: 'color-wand', url: '' },
-    { title: 'Teams',           subtitle: '10/10 Teams Made',     icon: 'people',     url: '' },
-    { title: 'Crawls',          subtitle: '4/10 Teams Crawling',  icon: 'compass',    url: '' },
-    { title: 'Statistics',      subtitle: '',                     icon: 'podium',     url: '' }
+    { title: 'Hero',            subtitle: () => `Level ${this.gameState.ref.currentHero.level}`,
+      icon: 'contact',    color: 'danger',    url: '/game/hero' },
+    { title: 'Essence Summon',  subtitle: () => `${this.gameState.ref.allEssences.length}/${this.gameState.ref.maxEssences} Essences`,
+      icon: 'aperture',   color: 'tertiary',  url: '/game/essence-summon' },
+    { title: 'Garches',         subtitle: () => `${this.gameState.ref.allGarches.length}/${this.gameState.ref.maxGarches} Garches`,
+      icon: 'person',     color: 'warning',   url: '' },
+    { title: 'Items',           subtitle: () => `${this.gameState.ref.allItems.length}/${this.gameState.ref.maxItems} Items`,
+      icon: 'color-wand', color: 'success',   url: '' },
+    { title: 'Teams',           subtitle: () => `${this.gameState.ref.allTeams.length}/${this.gameState.ref.maxTeams} Teams`,
+      icon: 'people',     color: 'primary',   url: '' },
+    { title: 'Crawls',          subtitle: () => '4/10 Teams Crawling',
+      icon: 'compass',    color: 'medium',    url: '' },
+    { title: 'Statistics',      subtitle: () => '',
+      icon: 'podium',     color: 'dark',      url: '' }
   ];
 
   constructor(
     private router: Router,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    private gameState: GameStateService
   ) {}
 
   async goToPage(page) {

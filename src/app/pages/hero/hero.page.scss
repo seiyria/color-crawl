@@ -1,0 +1,22 @@
+
+
+app-sprite {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 10;
+}
+
+ion-card-header {
+  padding-bottom: 0 !important;
+}
+
+ion-card-content {
+  padding-top: 0 !important;
+}
+
+/deep/ .range-disabled {
+  .range-bar-active, .range-knob {
+    background-color: green !important;
+  }
+}
