@@ -24,15 +24,17 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let essence of gameState.ref.allEssences" >
-          <app-sprite mask="Essence" [seed]="essence.type" scale="2" slot="start"></app-sprite>
-          <ion-label margin-left>
-            <h2>{{ essence.type }} Essence</h2>
-            <p><em>No Special Attributes</em></p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+      <ion-row>
+        <ion-col class="essence-block"
+                 *ngFor="let essence of gameState.ref.allEssences"
+                 (click)="showInformation($event, essence)">
+
+          <div class="essence-container" [ngClass]="['rarity-' + essence.rarity]">
+            <app-sprite mask="Essence" [seed]="essence.type" scale="4" slot="start"></app-sprite>
+          </div>
+
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>

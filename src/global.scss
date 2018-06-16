@@ -14,3 +14,23 @@
 // To declare rules for a specific mode, create a child rule for the .md, .ios,
 // or .wp mode classes. The mode class is automatically applied to the <body>
 // element in the app.
+
+.rarity-1 {
+  outline: 2px solid #000;
+}
+
+.rarity-2 {
+  outline: 2px solid #0f0;
+}
+
+.rarity-3 {
+  outline: 2px solid #f00;
+}
+
+.rarity-4 {
+  outline: 2px solid #00f;
+}
+
+.rarity-5 {
+  outline: 2px solid #f0f;
+}

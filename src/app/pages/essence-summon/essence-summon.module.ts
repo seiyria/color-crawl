@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TimeagoModule } from 'ngx-timeago';
 
-import { EssenceSummonPage } from './essence-summon.page';
+import { EssenceSummonInformationPage, EssenceSummonPage } from './essence-summon.page';
 import { PipesModule } from '../../pipes/pipes.module';
 import { ComponentsModule } from '../../components/components.module';
 
@@ -27,6 +27,7 @@ const routes: Routes = [
     TimeagoModule.forChild(),
     RouterModule.forChild(routes)
   ],
-  declarations: [EssenceSummonPage]
+  entryComponents: [EssenceSummonInformationPage],
+  declarations: [EssenceSummonPage, EssenceSummonInformationPage]
 })
 export class EssenceSummonPageModule {}

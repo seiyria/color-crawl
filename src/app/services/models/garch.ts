@@ -15,6 +15,7 @@ export class Garch {
   public level: number;
   public tier: number;
   public xp: RestrictedNumber;
+  public rarity: number;
 
   public element: Element;
   public type: GarchType;
@@ -39,6 +40,7 @@ export class Garch {
     if(!this.uuid) this.uuid = uuid();
     if(!this.level) this.level = 1;
     if(!this.tier) this.tier = 1;
+    if(!this.rarity) this.rarity = 1;
 
     if(!this.baseStamina) this.baseStamina = 100;
     if(!this.baseAttack) this.baseAttack = 10;

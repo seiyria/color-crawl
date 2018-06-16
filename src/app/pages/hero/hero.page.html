@@ -19,9 +19,8 @@
     <app-sprite mask="Person" [seed]="gameState.ref.currentHero.seed" scale="4" *ngIf="gameState.ref.currentHero.seed"></app-sprite>
 
     <ion-card-header>
-      <h1 text-center>
-        {{ gameState.ref.currentHero.name }} {{ gameState.ref.currentHero.tier | roman }}, the {{ gameState.ref.currentHero.job }}
-      </h1>
+      <h1 text-center>{{ gameState.ref.currentHero.name }} {{ gameState.ref.currentHero.tier | roman }}</h1>
+      <h6 text-center><em>The {{ gameState.ref.currentHero.job }}</em></h6>
     </ion-card-header>
 
     <ion-card-content>
