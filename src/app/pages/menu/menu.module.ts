@@ -15,7 +15,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'hero', pathMatch: 'full' },
       { path: 'hero', loadChildren: '../hero/hero.module#HeroPageModule' },
-      { path: 'essence-summon', loadChildren: '../essence-summon/essence-summon.module#EssenceSummonPageModule' }
+      { path: 'essence-summon', loadChildren: '../essence-summon/essence-summon.module#EssenceSummonPageModule' },
+      { path: 'garches', loadChildren: '../garches/garches.module#GarchesPageModule' }
     ]
   }
 ];

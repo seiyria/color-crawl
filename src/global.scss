@@ -15,22 +15,28 @@
 // or .wp mode classes. The mode class is automatically applied to the <body>
 // element in the app.
 
+@for $i from 1 through 5 {
+  .rarity-#{$i} {
+    border-radius: 25%;
+  }
+}
+
 .rarity-1 {
-  outline: 2px solid #000;
+  box-shadow: 0 0 3pt 2pt #888;
 }
 
 .rarity-2 {
-  outline: 2px solid #0f0;
+  box-shadow: 0 0 3pt 2pt #0f0;
 }
 
 .rarity-3 {
-  outline: 2px solid #f00;
+  box-shadow: 0 0 3pt 2pt #f00;
 }
 
 .rarity-4 {
-  outline: 2px solid #00f;
+  box-shadow: 0 0 3pt 2pt #00f;
 }
 
 .rarity-5 {
-  outline: 2px solid #f0f;
+  box-shadow: 0 0 3pt 2pt #f0f;
 }

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>Garches</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <h1 text-center>Garches ({{ gameState.ref.allGarches.length }}/{{ gameState.ref.maxGarches }})</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col class="garch-block"
+                 *ngFor="let garch of gameState.ref.allGarches"
+                 (click)="showInformation(garch)">
+
+          <div class="garch-container" [ngClass]="['rarity-' + garch.rarity]">
+            <app-sprite [mask]="garch.type" [seed]="garch.seed" scale="4" slot="start"></app-sprite>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

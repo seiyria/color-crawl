@@ -6,14 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TimeagoModule } from 'ngx-timeago';
 
-import { EssenceSummonInformationPopover, EssenceSummonPage } from './essence-summon.page';
 import { PipesModule } from '../../pipes/pipes.module';
 import { ComponentsModule } from '../../components/components.module';
+import { GarchesPage } from './garches.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EssenceSummonPage
+    component: GarchesPage
   }
 ];
 
@@ -27,7 +27,7 @@ const routes: Routes = [
     TimeagoModule.forChild(),
     RouterModule.forChild(routes)
   ],
-  entryComponents: [EssenceSummonInformationPopover],
-  declarations: [EssenceSummonPage, EssenceSummonInformationPopover]
+  entryComponents: [],
+  declarations: [GarchesPage]
 })
-export class EssenceSummonPageModule {}
+export class GarchesPageModule {}

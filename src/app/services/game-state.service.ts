@@ -6,6 +6,9 @@ import GameLoop from 'game-loop';
 import { GameState } from './models/game-state';
 import { HeroGenerator } from './generators/hero';
 import { Essence } from './models/essence';
+import { GarchGenerator } from './generators/garch';
+import { NotifierService } from './notifier.service';
+import { Garch } from './models/garch';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,10 @@ export class GameStateService {
     return this.gameState;
   }
 
-  constructor(private storage: Storage) {
+  constructor(
+    private storage: Storage,
+    private notifier: NotifierService
+  ) {
     this.gameState = new GameState();
 
     this.init();
@@ -67,10 +73,42 @@ export class GameStateService {
   }
 
   private tryRechargeEssence() {
-    if(Date.now() < this.gameState.nextEssenceRecharge || !this.gameState.canGetNewEssence) return;
+    if(Date.now() < this.gameState.nextEssenceRecharge) return;
+
+    this.gameState.resetNextEssenceRecharge();
+    if(!this.gameState.canGetNewEssence) return;
 
     this.gameState.allEssences.push(new Essence({ type: 'Basic' }));
-    this.gameState.resetNextEssenceRecharge();
+    this.save();
+
+    this.notifier.notify('Essence recharged.');
+  }
+
+  public salvageEssence(essence: Essence) {
+    this.gameState.essenceFragments += essence.fragmentValue;
+    this.gameState.removeItem(this.gameState.allEssences, essence);
+    this.save();
+
+    this.notifier.notify(`Essence salvaged for ${essence.fragmentValue} essence fragments.`);
+  }
+
+  public salvageGarch(garch: Garch) {
+    this.gameState.essenceFragments += garch.fragmentValue;
+    this.gameState.removeItem(this.gameState.allGarches, garch);
+    this.save();
+
+    this.notifier.notify(`Garch (${garch.name}) salvaged for ${garch.fragmentValue} essence fragments.`);
+  }
+
+  public rollGarchForEssence(essence: Essence): Garch {
+    const newGarch = GarchGenerator.generate({ essence });
+
+    this.gameState.removeItem(this.gameState.allEssences, essence);
+    this.gameState.addItem(this.gameState.allGarches, newGarch);
+
+    this.save();
+
+    return newGarch;
   }
 
   private tick(d) {

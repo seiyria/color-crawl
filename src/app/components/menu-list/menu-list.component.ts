@@ -17,7 +17,7 @@ export class MenuListComponent {
     { title: 'Essence Summon',  subtitle: () => `${this.gameState.ref.allEssences.length}/${this.gameState.ref.maxEssences} Essences`,
       icon: 'aperture',   color: 'tertiary',  url: '/game/essence-summon' },
     { title: 'Garches',         subtitle: () => `${this.gameState.ref.allGarches.length}/${this.gameState.ref.maxGarches} Garches`,
-      icon: 'person',     color: 'warning',   url: '' },
+      icon: 'person',     color: 'warning',   url: '/game/garches' },
     { title: 'Items',           subtitle: () => `${this.gameState.ref.allItems.length}/${this.gameState.ref.maxItems} Items`,
       icon: 'color-wand', color: 'success',   url: '' },
     { title: 'Teams',           subtitle: () => `${this.gameState.ref.allTeams.length}/${this.gameState.ref.maxTeams} Teams`,

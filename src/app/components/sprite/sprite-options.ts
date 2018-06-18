@@ -9,3 +9,7 @@ export const Essence = {
   brightnessNoise: 0.5,
   saturation: 1
 };
+
+export const Dragon = {
+
+};
