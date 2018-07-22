@@ -57,6 +57,8 @@ export class GameState {
     if(opts.currentHero) this.currentHero = new Hero(opts.currentHero);
     if(opts.allEssences) this.allEssences = opts.allEssences.map(x => new Essence(x));
     if(opts.allGarches) this.allGarches = opts.allGarches.map(x => new Garch(x));
+    if(opts.allItems) this.allItems = opts.allItems.map(x => new Item(x));
+    if(opts.allTeams) this.allTeams = opts.allTeams.map(x => new Team(x));
     if(opts.essenceFragments) this.essenceFragments = opts.essenceFragments;
     if(opts.nextEssenceRecharge) this.nextEssenceRecharge = opts.nextEssenceRecharge;
 
